@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.CacheControl;
 import org.springframework.http.HttpHeaders;
@@ -40,6 +42,11 @@ public class Controller {
 		byte[] media = service.getImageAgainstId(id).getBytes();
 		ResponseEntity<byte[]> responseEntity = new ResponseEntity<>(media, headers, HttpStatus.OK);
 		return responseEntity;
+	}
+	
+	@RequestMapping(value = "/images", method = RequestMethod.GET, produces = "application/json")
+	public Map<String, String> getAllImages() {
+		return service.allImagesInDb();
 	}
 	
 	

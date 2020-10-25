@@ -1,6 +1,7 @@
 package com.example.demo.db;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
@@ -39,5 +40,11 @@ public class MongoImageDB implements IImageDB {
 	@Override
 	public Image getRandomImage() {
 		return ImageUtil.getImageUrl(randomImageUrl, "Picsum-Id");
+	}
+
+	@Override
+	public Map<String, String> allImagesInDb() {
+		// TODO Auto-generated method stub
+		return inMem;
 	}
 }
